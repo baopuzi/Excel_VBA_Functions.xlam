@@ -1,4 +1,4 @@
-# Excel-VBA-Functions.xlam
+# Excel_VBA_Functions.xlam
 包含若干个函数或模块。具体如下：
 
 Function 1_Combine cells using comma.ba </br>
