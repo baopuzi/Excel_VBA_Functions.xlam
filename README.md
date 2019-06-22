@@ -1,8 +1,8 @@
 # Excel-VBA-Functions.xlam
 包含若干个函数或模块。具体如下：
 
-Function 1_Combine cells using comma.bas
-需求：查询多个电信基站的信息，输入是 数字ID以英文逗号‘,’间隔
+Function 1_Combine cells using comma.ba </br>
+需求：查询多个电信基站的信息，输入是 数字ID以英文逗号‘,’间隔。
 实现：Excel自定义函数，将选中的单元格内容连接，以英文逗号‘,’间隔。
 
 Function 2_Get str using regular.bas
