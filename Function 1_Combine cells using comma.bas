@@ -8,5 +8,6 @@ If rng.Text <> "," And rng.Text <> "#N/A" And Not rng.Text = "" Then
 OutStr = OutStr & rng.Text & Sign
 End If
 Next
+'删除合并后的字符串最后一个逗号
 Com = Left(OutStr, Len(OutStr) - 1)
 End Function
