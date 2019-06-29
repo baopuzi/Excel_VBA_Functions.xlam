@@ -2,11 +2,11 @@
 Function GetStr(rng As Range)
     With CreateObject("VBscript.regexp")
         .Global = True
-        .Pattern = "[0-9]{4}[A-Z]"    '表达式
+        .Pattern = "[0-9]{4}[A-Z]"    '正则表达式，四位数字和一个大写字母
         If .Execute(rng).Count = 0 Then
-            GetStr = ""
+            GetStr = ""               '如果没有匹配到，以空字符串代替，需检查原字符串是否错误
         Else
-            GetStr = .Execute(rng)(0)
+            GetStr = .Execute(rng)(0) '如果匹配到，则取第一次匹配到的结果
         End If
     End With
 End Function
