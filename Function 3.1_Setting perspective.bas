@@ -31,8 +31,8 @@ Sub set_size()
     .PlotArea.InsideTop = 22
     .PlotArea.InsideLeft = 200 '已经超过PlotArea允许范围
     End With
-    Else
-    MsgBox "Chart 1 does not exist"  '如果图形数量为0，则不存在透视图，退出程序
+    Else                       '可能在非透视图情况下点击按键，如果透视图数量为0，表明不存在透视图，退出执行程序。             
+    MsgBox "Chart 1 does not exist"  
     Exit Sub
     End If
 End Sub
