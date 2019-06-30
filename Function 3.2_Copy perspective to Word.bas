@@ -1,33 +1,39 @@
 Sub copy_to_word()
-'excel控制word,生成新文件，插入图片和文件名，保存
+'创建word文件，依次复制粘贴图片，保存
 'office 2003, VBA工具/引用中要勾选Microsoft Word 11.0 Object Library
 'office 2007, VBA工具/引用中要勾选Microsoft Word 12.0 Object Library
 '...
 
-'On Error GoTo ErrHandler: '下列代码程可能遇到未知错误，暂时使用ErrHandle跳至程序结尾
-
+'如果不存在透视图则直接退出执行程序
 If ActiveSheet.PivotTables.Count = 0 Then
 MsgBox "PivotTable does not exist"
 Exit Sub
 End If
-
-Dim pivotTable_name '获取第一个数据透视图的名称，一般叫做“数据透视图1”
+        
+'获取第一个数据透视图的名称，一般叫做“数据透视图1”
+Dim pivotTable_name 
 pivotTable_name = ActiveSheet.PivotTables(1).name
 
+'检查透视图的第一张图片是否已经设置（轴、图例、值）
+'检查轴设置
 If ActiveSheet.PivotTables(pivotTable_name).RowFields.Count = 0 Then
 MsgBox "Axis is null！"
 Exit Sub
 End If
 
+'检查图例设置            
 If ActiveSheet.PivotTables(pivotTable_name).ColumnFields.Count = 0 Then
 MsgBox "Legend is null！"
 Exit Sub
 End If
-
+                
+'检查值设置               
 If ActiveSheet.PivotTables(pivotTable_name).DataFields.Count = 0 Then
 MsgBox "Value is null！"
 Exit Sub
 End If
+
+'存在图片，则获取获取当前这个透视图的字段取值方式（求和、计数还是求平均）                   
 value_type = ActiveSheet.PivotTables(pivotTable_name).DataFields(1).Function
 
 
@@ -35,10 +41,13 @@ value_type = ActiveSheet.PivotTables(pivotTable_name).DataFields(1).Function
 
 
 Dim name, N, i, defpath, fileName, arr(), sheetname
-sheetname = ActiveSheet.name '获取当前sheet
+'获取当前sheet
+sheetname = ActiveSheet.name 
 
-'获取文件名（不带扩展名）
+
 'fileName1 = Split(ActiveWorkbook.name, ".")(0) '利用split函数分割文件扩展名，但是文件名中有 . 符号就有问题，要合并处理分割后得到的数组
+
+'获取文件名（不带扩展名），目的是创建的word文件相同命名                        
 Dim fso
 Set fso = CreateObject("Scripting.FileSystemObject")
 fileName = CStr(fso.getbasename(ActiveWorkbook.name))
