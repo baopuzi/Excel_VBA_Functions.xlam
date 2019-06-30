@@ -1,8 +1,12 @@
+'该程序有可能遇到未知错误中断，主要是在新建word文档的地方，有待优化。
+'临时规避方法，出错后关闭Excel，重新执行。
+
 Sub copy_to_word()
+
 '创建word文件，依次复制粘贴图片，保存
 'office 2003, VBA工具/引用中要勾选Microsoft Word 11.0 Object Library
 'office 2007, VBA工具/引用中要勾选Microsoft Word 12.0 Object Library
-'...
+'office 2010...
 
 '如果不存在透视图则直接退出执行程序
 If ActiveSheet.PivotTables.Count = 0 Then
@@ -137,16 +141,10 @@ WordApp.Documents.Add '新建文件
     ActiveChart.PivotLayout.PivotTable.AddDataField ActiveChart.PivotLayout. _
         PivotTable.PivotFields(arr(N)), _
         value_type_name & arr(N), value_type
-        
-     
 
-
-WordApp.ActiveDocument.Save '保存Word文件
+'保存Word文件             
+WordApp.ActiveDocument.Save 
 WordApp.Quit '退出
 Set WordApp = Nothing '取消变量
- 
-'Exit Sub '可能遇到未知错误，程序要结束执行
-'ErrHandler:
-    'MsgBox "遇到未知错误，请保存并关闭Excel后重试！"
-    'Set WordApp = Nothing '取消变量
+
 End Sub
