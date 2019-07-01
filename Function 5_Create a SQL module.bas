@@ -23,7 +23,7 @@ Sub Create_SQL_Sub()
     ActiveWorkbook.VBProject.VBComponents(module_time).CodeModule.InsertLines 15, "end sub"
 End Sub
 
-'示例
+'以下是点击菜单按钮后生成的示例（Alt+F11）
 'Sub SQL20190701131820()
 '    Set Conn = CreateObject("ADODB.Connection")
 '    Conn.Open "dsn=excel files;dbq=" & "C:\Users\MQ\Desktop\下载实例\欺诈检测_data.csv"
