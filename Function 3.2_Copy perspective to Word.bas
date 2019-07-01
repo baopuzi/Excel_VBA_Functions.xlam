@@ -2,8 +2,8 @@
 '临时规避方法，出错后关闭Excel，重新执行。
 
 Sub copy_to_word()
-
 '创建word文件，依次复制粘贴图片，保存
+'注意加载相应word引用
 'office 2003, VBA工具/引用中要勾选Microsoft Word 11.0 Object Library
 'office 2007, VBA工具/引用中要勾选Microsoft Word 12.0 Object Library
 'office 2010...
@@ -40,15 +40,9 @@ End If
 '存在图片，则获取获取当前这个透视图的字段取值方式（求和、计数还是求平均）                   
 value_type = ActiveSheet.PivotTables(pivotTable_name).DataFields(1).Function
 
-
-
-
-
 Dim name, N, i, defpath, fileName, arr(), sheetname
 '获取当前sheet
 sheetname = ActiveSheet.name 
-
-
 'fileName1 = Split(ActiveWorkbook.name, ".")(0) '利用split函数分割文件扩展名，但是文件名中有 . 符号就有问题，要合并处理分割后得到的数组
 
 '获取文件名（不带扩展名），目的是创建的word文件相同命名                        
