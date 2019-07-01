@@ -23,3 +23,21 @@ Sub Create_SQL_Sub()
     ActiveWorkbook.VBProject.VBComponents(module_time).CodeModule.InsertLines 15, "end sub"
 End Sub
 
+'示例
+'Sub SQL20190701131820()
+'    Set Conn = CreateObject("ADODB.Connection")
+'    Conn.Open "dsn=excel files;dbq=" & "C:\Users\MQ\Desktop\下载实例\欺诈检测_data.csv"
+'
+'    'SQL = "select * from [欺诈检测_data$]"
+'    'Sheets("欺诈检测_data").[M2].CopyFromRecordset Conn.Execute(SQL)
+'
+'
+'    Sql1 = "Update [LoadMNGCell$] set prbLBExeThrdZUl = '65',prbLBExeThrdZDl='65',intraNeighborLoadRelaThrdUl='15',intraNeighborLoadRelaThrdDl='15'  where description like 'cellLocalId=10%'"
+'    Sql2 = "Update [LoadMNGCell$] set prbLBExeThrdZUl = '30',prbLBExeThrdZDl='30',intraNeighborLoadRelaThrdUl='0',intraNeighborLoadRelaThrdDl='0'  where description like 'cellLocalId=20%'"
+'    Conn.Execute (Sql1)
+'    Conn.Execute (Sql2)
+'
+'    Conn.Close: Set Conn = Nothing
+'End Sub
+
+
