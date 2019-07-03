@@ -1,9 +1,9 @@
 '该程序有可能遇到未知错误中断，主要是在新建word文档的地方，有待优化。
-'临时规避方法，出错后关闭Excel，重新执行。
+'临时规避方法，出错后关闭Excel，重新点击菜单按钮执行。
 
 Sub copy_to_word()
 '创建word文件，依次复制粘贴图片，保存
-'注意加载相应word引用
+'注意需要加载相应word引用
 'office 2003, VBA工具/引用中要勾选Microsoft Word 11.0 Object Library
 'office 2007, VBA工具/引用中要勾选Microsoft Word 12.0 Object Library
 'office 2010...
