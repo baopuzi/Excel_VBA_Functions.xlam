@@ -18,7 +18,7 @@ End If
 Dim pivotTable_name 
 pivotTable_name = ActiveSheet.PivotTables(1).name
 
-'检查透视图的第一张图片是否已经设置（轴、图例、值）
+'检查透视图的第一张图片是否已经设置（轴、图例、值）,没有则退出执行程序并弹窗提示。
 '检查轴设置
 If ActiveSheet.PivotTables(pivotTable_name).RowFields.Count = 0 Then
 MsgBox "Axis is null！"
