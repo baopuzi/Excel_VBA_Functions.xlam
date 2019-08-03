@@ -18,6 +18,7 @@ Function 3.2_Copy perspective to Word.bas </br>
 实现：手动绘制出第一个字段（指标）的透视图，后续依次自动切换到其它指标，并将所有图片复制后粘贴到新建Word文档。最后只需一次将Word中的图片复制到邮件中。
 
 Function 4_Reverse string.bas </br>
+需求：自定义函数。
 实现：自定义函数，将单元格中的字符串反向。
 
 Function 5_Create a SQL module.bas </br>
